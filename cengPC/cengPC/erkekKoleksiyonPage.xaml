@@ -18,7 +18,9 @@
     </NavigationPage.TitleView>
     
     <ContentPage.Content>
-        <StackLayout  BackgroundColor="White">
+        <StackLayout>
+            
+            <!--sırala - filtre - start-->
             <ImageButton Source="sirala" HeightRequest="34"
                   HorizontalOptions="Start" 
                                  VerticalOptions="Start"
@@ -32,15 +34,18 @@
                 <Label x:Name="urunSayisi" Text="10 ürün gösteriliyor" HorizontalTextAlignment="Center" FontSize="16" TextColor="Black" BackgroundColor="LightGray"/>
 
             </StackLayout>
-
+            <!--sırala - filtre - end-->
+            
+            
             
             
             <!--ürün listeleme alanı - start-->
-            <ScrollView x:Name="scrollViewArea">
-                
-                
+            <ScrollView x:Name="scrollViewArea" BackgroundColor="GhostWhite">
+              
+
             </ScrollView>
             <!--ürün listeleme alanı - end-->
+            
             
             
             <!-- bottom navbar - start -->

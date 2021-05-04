@@ -12,10 +12,12 @@ namespace cengPC
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UrunSayfasi : ContentPage
     {
-        public UrunSayfasi(Image comingImage)
+        public UrunSayfasi()
         {
             InitializeComponent();
-            Console.WriteLine("bir image geliyor" + comingImage);
+            Console.WriteLine("bi şeyler geldi");
+            
         }
+
     }
 }

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
             
-             xmlns:templates="clr-namespace:cengPc;assembly=cengPC" 
+             xmlns:templates="clr-namespace:cengPC;assembly=cengPC" 
              xmlns:templates1="clr-namespace:cengPC"
              x:Class="cengPC.MainPage">
     <!-- xmlns:local="clr-namespace:cengPC"-->
@@ -16,18 +16,16 @@
             <Grid>
 
                 <!-- orta kısım - start-->
-                <xct:TabView
-                    x:Name="tabViewArea"
+                <xct:TabView x:Name="tabViewArea"
                     Padding="0,50,0,0"
                     TabStripPlacement="Top"
                     TabStripBackgroundColor="White"
                     IsSwipeEnabled="True"
                     TabStripHeight="60"
-                    TabContentHeight="500"
+                    TabContentHeight= "600"
                     TabIndicatorColor="Brown"
                     TabContentBackgroundColor="White"
-                    HorizontalOptions="StartAndExpand"
-                   >
+                    HorizontalOptions="StartAndExpand">
 
                     <!--keşfet - start -->
                     <xct:TabViewItem
@@ -892,7 +890,7 @@
 
             <!-- bottom navbar - start -->
             <StackLayout x:Name="bottomNavbar"
-                         Margin=" 0,610,0,0" 
+                         Margin=" 0,710,0,0" 
                          HeightRequest="50" 
                          Orientation="Horizontal" 
                          VerticalOptions="End">

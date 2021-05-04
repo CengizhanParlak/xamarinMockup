@@ -17,10 +17,37 @@
     </NavigationPage.TitleView>
     
     <ContentPage.Content>
-        <StackLayout>
-            <Image x:Name="selectedProduct">
+        <AbsoluteLayout BackgroundColor="White">
+            <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never" >
+                <StackLayout x:Name="SLinContent">
+
+                </StackLayout>
+            </ScrollView>
+            <!-- bottom navbar - start -->
+            <StackLayout Margin=" 0,710,0,0" 
+                         HeightRequest="50" 
+                         Orientation="Horizontal">
+
+
+                <Label Text="79,99 TL" 
+                       FontSize="24"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0">
+                    </Label>
+                    <Button Text="SEPETE EKLE" 
+                            HorizontalOptions="End"
+                            Margin="0,0,0,-8"
+                            HeightRequest="60"
+                            WidthRequest="300"
+                            VerticalOptions="End"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            BackgroundColor="DarkRed"
+                            />
                 
-            </Image>
-        </StackLayout>
+            </StackLayout>
+            <!-- bottom navbar - end -->
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -83,21 +83,22 @@ namespace cengPC
                     frameInGrid = new Frame();
                     stackLayoutInFrame = new StackLayout();
                     UrunPath = ImagePaths.ElementAt(rowIndex * 2 + columnIndex);
-                    
-                    
+
+
                     //Image button yaratıyoruz
-                    Image UrunResmi = new Image()
+                    ImageButton UrunButton = new ImageButton()
                     {
                         Source = UrunPath,
-                        BackgroundColor = Color.White,
+                        BackgroundColor = Color.Transparent,
                         HeightRequest = 300,
-                        WidthRequest = 300,
+                        Margin = new Thickness(-10, -20, -10, 0),
+                        Aspect = Aspect.AspectFill,
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center,
+                        
                     };
-                    var tapGestureRecognizer = new TapGestureRecognizer();
-                    tapGestureRecognizer.NumberOfTapsRequired = 1;
-                    UrunResmi.GestureRecognizers.Add(tapGestureRecognizer);
+
+                    UrunButton.Clicked += UrunButton_Clicked;
 
                     Label UrunLabeli = new Label {
                         Text = UrunPath.Substring(1),
@@ -112,7 +113,7 @@ namespace cengPC
                         VerticalOptions = LayoutOptions.Center,
                     };
 
-                    stackLayoutInFrame.Children.Add(UrunResmi);
+                    stackLayoutInFrame.Children.Add(UrunButton);
                     stackLayoutInFrame.Children.Add(UrunLabeli);
                     stackLayoutInFrame.Children.Add(UrunFiyati);
                     frameInGrid.Content = stackLayoutInFrame;
@@ -123,11 +124,10 @@ namespace cengPC
             return sl;
         }
 
-        public void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+
+        private void UrunButton_Clicked(object sender, EventArgs e)
         {
-            var imageSender = (Image)sender;
-            Navigation.PushAsync(new UrunSayfasi(imageSender));
-            
+            Navigation.PushAsync(new UrunSayfasi());
         }
     }
 

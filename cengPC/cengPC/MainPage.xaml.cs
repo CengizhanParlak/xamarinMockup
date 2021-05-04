@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using cengPC;
 using Xamarin.Essentials;
+using cengPC;
 
 namespace cengPC
 {
@@ -18,9 +18,12 @@ namespace cengPC
         public MainPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
+            BindingContext = this;
             var metrics = DeviceDisplay.MainDisplayInfo;
-            var widthOfScreen = metrics.Width;
-            var heightOfScreen = metrics.Height;
+            double densityOfScreen = metrics.Density;
+            double widthOfScreen = metrics.Width/densityOfScreen;
+            double heightOfScreen = metrics.Height/densityOfScreen;
+            double ContentArea = heightOfScreen - 50;
             InitializeComponent();
         }
         async void SearchBtnClicked(object sender, EventArgs e)
