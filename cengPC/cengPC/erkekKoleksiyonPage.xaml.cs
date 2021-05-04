@@ -127,7 +127,8 @@ namespace cengPC
 
         private void UrunButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new UrunSayfasi());
+            ImageButton imgButton = (ImageButton)sender;
+            Navigation.PushAsync(new UrunSayfasi(imgButton));
         }
     }
 

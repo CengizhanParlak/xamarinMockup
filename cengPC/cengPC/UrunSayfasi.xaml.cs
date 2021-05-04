@@ -12,11 +12,11 @@ namespace cengPC
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UrunSayfasi : ContentPage
     {
-        public UrunSayfasi()
+        public UrunSayfasi(ImageButton imgBtn)
         {
             InitializeComponent();
-            Console.WriteLine("bi şeyler geldi");
-            
+            ImageButton selectedImgBtn = imgBtn;
+            SLinContent.Children.Add(selectedImgBtn);
         }
 
     }
