@@ -52,7 +52,7 @@
                                                 <StackLayout Orientation="Vertical">
                                                     <ImageButton Source="OnlineOzel" HeightRequest="73" 
                                                                      BackgroundColor="White" CornerRadius="10" 
-                                                                     Margin="0,0,0,0" Clicked="ImageButton_Clicked_7">
+                                                                     Margin="0,0,0,0">
 
                                                     </ImageButton>
                                                     
@@ -396,9 +396,9 @@
 
                                         <Image Source="YeniSezon"  HeightRequest="420" Margin="0,-92,0,10" ></Image>
                                         <StackLayout Orientation="Vertical" Margin="5,-130,0,0">
-                                            <Button Text=" ERKEK" BackgroundColor="White" HorizontalOptions="Start" FontAttributes="Bold"  ></Button>
-                                            <Button Text="T-Shirt" BackgroundColor="White" HorizontalOptions="Start"  ></Button>
-                                            <Button Text="Ceket" BackgroundColor="White" HorizontalOptions="Start"  ></Button>
+                                            <Button Text=" ERKEK" BackgroundColor="White" HorizontalOptions="Start" FontAttributes="Bold" Clicked="ErkekYSClicked" ></Button>
+                                            <Button Text="T-Shirt" BackgroundColor="White" HorizontalOptions="Start" Clicked="TshirtYSClicked" ></Button>
+                                            <Button Text="Ceket" BackgroundColor="White" HorizontalOptions="Start" Clicked="CeketYSClicked" ></Button>
                                             <Button Text="   Gömlek" BackgroundColor="White" HorizontalOptions="Start"  ></Button>
                                             <Button Text="    Sweatshirt" BackgroundColor="White" HorizontalOptions="Start"  ></Button>
                                             <Button Text="    Takım Elbise - Smokin" BackgroundColor="White" HorizontalOptions="Start"  ></Button>
@@ -475,7 +475,7 @@
 
                                         <Image Source="Erkek"  HeightRequest="420" Margin="0, -92,0,10" ></Image>
                                         <StackLayout Orientation="Vertical" Margin="10,-130,0,0">
-                                            <Button Text=" KOLEKSİYON" Clicked="erkekKoleksiyon" BackgroundColor="White" HorizontalOptions="Start" FontAttributes="Bold"  ></Button>
+                                            <Button Text=" KOLEKSİYON" Clicked="ErkekYSClicked" BackgroundColor="White" HorizontalOptions="Start" FontAttributes="Bold"  ></Button>
                                             <Button Text="T-Shirt" BackgroundColor="White" HorizontalOptions="Start"  ></Button>
                                             <Button Text="Ceket" BackgroundColor="White" HorizontalOptions="Start"  ></Button>
                                             <Button Text="   Gömlek" BackgroundColor="White" HorizontalOptions="Start"  ></Button>
@@ -915,7 +915,7 @@
                                  VerticalOptions="Start"
                                  Margin="25,5,0,5"
                                  WidthRequest="30"
-                                 Padding="-2" Clicked="ImageButton_Clicked_2"/>
+                                 Padding="-2" Clicked="HesabimBtnClicked"/>
                     <Label Text="Hesabım" 
                            Margin="15,-10,-10,0" 
                            Padding="-4">
@@ -930,7 +930,7 @@
                                  VerticalOptions="Start"
                                  Margin="25,5,0,5"
                                  WidthRequest="30"
-                                 Padding="0" Clicked="ImageButton_Clicked_5"/>
+                                 Padding="0" Clicked="FavoriBtnClicked"/>
                     <Label Text="Favorilerim" 
                            Margin="10,-10,-10,0" 
                            Padding="-4">
@@ -945,7 +945,7 @@
                                  VerticalOptions="Start"
                                  Margin="25,5,0,5"
                                  WidthRequest="30"
-                                 Padding="-1" Clicked="ImageButton_Clicked_4"/>
+                                 Padding="-1" Clicked="TakipBtnClicked"/>
                     <Label Text="Sipariş Takip" 
                            Margin="5,-10,-10,0"
                            Padding="-4">
@@ -961,7 +961,7 @@
                                  VerticalOptions="Start"
                                  Margin="15,5,0,5"
                                  WidthRequest="30"
-                                 Padding="8" Clicked="ImageButton_Clicked_6"/>
+                                 Padding="8" Clicked="MoreBtnClicked"/>
                     <Label Text="Daha Fazla" 
                            Margin="0,-10,-10,0" 
                            Padding="-4">
@@ -985,13 +985,13 @@
                                 VerticalOptions="Center"
                                 Margin="60, 15, 0 ,13" 
                                 CornerRadius="100" 
-                                Padding="0" Clicked="ImageButton_Clicked"/>
+                                Padding="0" Clicked="SearchBtnClicked"/>
 
                 <ImageButton  Source="basket" BackgroundColor="white"
                                  HorizontalOptions="Start" 
                                  VerticalOptions="Start"
                                  Margin="0,10,10,5"
-                                 Padding="0" Clicked="ImageButton_Clicked_1"/>
+                                 Padding="0" Clicked="BasketBtnClicked"/>
 
             </StackLayout>
             <!-- topbar - end -->

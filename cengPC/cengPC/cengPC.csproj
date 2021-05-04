@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -14,6 +14,22 @@
     <Compile Remove="PierreCardinMA\**" />
     <EmbeddedResource Remove="PierreCardinMA\**" />
     <None Remove="PierreCardinMA\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\assets\beyaztshirt.jpg" />
+    <None Remove="Resources\assets\koyuyesiltshirt.jpg" />
+    <None Remove="Resources\assets\mavitshirt.jpg" />
+    <None Remove="Resources\assets\turuncutshirt.jpg" />
+    <None Remove="Resources\assets\yesiltshirt.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\assets\beyaztshirt.jpg" />
+    <EmbeddedResource Include="Resources\assets\koyuyesiltshirt.jpg" />
+    <EmbeddedResource Include="Resources\assets\mavitshirt.jpg" />
+    <EmbeddedResource Include="Resources\assets\turuncutshirt.jpg" />
+    <EmbeddedResource Include="Resources\assets\yesiltshirt.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,6 +69,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="erkekKoleksiyonPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="erkekKoleksiyonPageOld.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="FavPage.xaml">

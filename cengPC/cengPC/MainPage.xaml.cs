@@ -19,18 +19,18 @@ namespace cengPC
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
-        async void ImageButton_Clicked(object sender, EventArgs e)
+        async void SearchBtnClicked(object sender, EventArgs e)
         {
            await Navigation.PushAsync(new SearchPage());
             
         }
 
-        async void ImageButton_Clicked_1(object sender, EventArgs e)//private void ti. 21.39da async'e değiştirdim
+        async void BasketBtnClicked (object sender, EventArgs e)//private void ti. 21.39da async'e değiştirdim
         {
             await Navigation.PushAsync(new basketPage());
         }
 
-        private void ImageButton_Clicked_2(object sender, EventArgs e)
+        private void HesabimBtnClicked(object sender, EventArgs e)
         {
             if (MainPage.girildiMi) 
             {
@@ -49,7 +49,7 @@ namespace cengPC
 
         }
 
-        private void ImageButton_Clicked_4(object sender, EventArgs e)
+        private void TakipBtnClicked(object sender, EventArgs e)
         {
             if (MainPage.girildiMi)
             {
@@ -62,7 +62,7 @@ namespace cengPC
             }
         }
         
-        private void ImageButton_Clicked_5(object sender, EventArgs e)
+        private void FavoriBtnClicked(object sender, EventArgs e)
         {
             if (MainPage.girildiMi)
             {
@@ -76,21 +76,28 @@ namespace cengPC
 
         }
 
-        private void ImageButton_Clicked_6(object sender, EventArgs e)
+        private void MoreBtnClicked (object sender, EventArgs e)
         {
             Navigation.PushAsync(new MorePage());
         }
 
-
-        //erkek sayfasi koleksiyon butonu clicked işlemi
-        private void erkekKoleksiyon(object sender, EventArgs e)
+        private void ErkekYSClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new erkekKoleksiyonPage());
         }
 
-        private void ImageButton_Clicked_7(object sender, EventArgs e)
+        private void TshirtYSClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new erkekKoleksiyonPage());
+            //Navigation.PushAsync(new tshirtKoleksiyonPage());
         }
+
+        private void CeketYSClicked(object sender, EventArgs e)
+        {
+            //Navigation.PushAsync(new ceketKoleksiyonPage());
+        }
+        
+
+
+
     }
 }

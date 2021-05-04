@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:cengPC;assembly=cengPC"
              x:Class="cengPC.erkekKoleksiyonPage"  BackgroundColor="DarkBlue" >
     <NavigationPage.TitleView>
         <StackLayout HeightRequest="50" Orientation="Horizontal"  BackgroundColor="white">
@@ -31,113 +32,17 @@
                 <Label Text="10 ürün gösteriliyor" HorizontalTextAlignment="Center" FontSize="16" TextColor="Black" BackgroundColor="LightGray"/>
 
             </StackLayout>
-            <ScrollView>
-                    <StackLayout Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" Orientation="Vertical"><Grid>
-                <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                               <RowDefinition Height="*"/>
-                  </Grid.RowDefinitions>
-                        <Frame>
-                            <StackLayout>
-                            <ImageButton  Source="kaban" Grid.Row="0" Grid.Column="0" 
-                             BackgroundColor="White" BorderColor="White" BorderWidth="0" 
-                             HeightRequest="250" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                <Label Text="Açık Kahverengi Standart.." ></Label>
-                                <Label Text="999,95 TL"></Label>
-                            </StackLayout>
-                        </Frame>
 
-                        
-                        <Frame Grid.Row="0" Grid.Column="1">
-                            <StackLayout>
-                            <ImageButton Source="gomlek"  
-                             BackgroundColor="White" BorderColor="White" BorderWidth="0" 
-                             HeightRequest="250"></ImageButton>
-                                <Label Text="Lacivert Slim Fit Gömlek" ></Label>
-                                <Label Text="249,95 TL"></Label>
-                            </StackLayout>
-                        </Frame>
-                        <Frame Grid.Row="1" Grid.Column="0">
-                            <StackLayout>
-                                <ImageButton Source="gomlek"
-                             BackgroundColor="White" BorderColor="White" BorderWidth="0" 
-                             HeightRequest="250"></ImageButton>
-                                <Label Text="Lacivert Slim Fit Gömlek" ></Label>
-                                <Label Text="249,95 TL"></Label>
-                            </StackLayout>
-                        </Frame>
-                        <Frame Grid.Row="1" Grid.Column="1">
-                            <StackLayout>
-                            <ImageButton Source="kaban"
-                             BackgroundColor="White" BorderColor="White" BorderWidth="0" 
-                             HeightRequest="250"></ImageButton>
-                                <Label Text="Açık Kahverengi Standart.." ></Label>
-                                <Label Text="999,95 TL"></Label>
-                            </StackLayout>
-                        </Frame>
-
-                        <Frame Grid.Row="2" Grid.Column="0">
-                            <StackLayout>
-                            <ImageButton Source="kaban"
-                             BackgroundColor="White" BorderColor="White" BorderWidth="0" 
-                             HeightRequest="250"></ImageButton>
-                                <Label Text="Açık Kahverengi Standart.." ></Label>
-                                <Label Text="999,95 TL"></Label>
-                            </StackLayout>
-                        </Frame>
-                        <Frame Grid.Row="2" Grid.Column="1">
-                            <StackLayout>
-                            <ImageButton Source="kaban"
-                             BackgroundColor="White" BorderColor="White" BorderWidth="0" 
-                             HeightRequest="250"></ImageButton>
-                                <Label Text="Açık Kahverengi Standart.." ></Label>
-                                <Label Text="999,95 TL"></Label>
-                            </StackLayout>
-                        </Frame>
-                        <Frame Grid.Row="3" Grid.Column="0">
-                            <StackLayout>
-                            <ImageButton Source="kaban"
-                             BackgroundColor="White" BorderColor="White" BorderWidth="0" 
-                             HeightRequest="250"></ImageButton>
-                                <Label Text="Açık Kahverengi Standart.." ></Label>
-                                <Label Text="999,95 TL"></Label>
-                            </StackLayout>
-                        </Frame>
-                        <Frame Grid.Row="3" Grid.Column="1">
-                            <StackLayout>
-                            <ImageButton Source="kaban"
-                             BackgroundColor="White" BorderColor="White" BorderWidth="0" 
-                             HeightRequest="250"></ImageButton>
-                                <Label Text="Açık Kahverengi Standart.." ></Label>
-                                <Label Text="999,95 TL"></Label>
-                            </StackLayout>
-                        </Frame>
-                        <Frame Grid.Row="4" Grid.Column="0">
-                            <StackLayout>
-                            <ImageButton Source="kaban"
-                             BackgroundColor="White" BorderColor="White" BorderWidth="0" 
-                             HeightRequest="250"></ImageButton>
-                                <Label Text="Açık Kahverengi Standart.." ></Label>
-                                <Label Text="999,95 TL"></Label>
-                            </StackLayout>
-                        </Frame>
-                        <Frame Grid.Row="4" Grid.Column="1">
-                            <StackLayout>
-                            <ImageButton Source="kaban"
-                             BackgroundColor="White" BorderColor="White" BorderWidth="0" 
-                             HeightRequest="250"></ImageButton>
-                                <Label Text="Açık Kahverengi Standart.." ></Label>
-                                <Label Text="999,95 TL"></Label>
-                            </StackLayout>
-                        </Frame>
-                    </Grid>
-
-                    </StackLayout>
-                </ScrollView>
+            
+            
+            <!--ürün listeleme alanı - start-->
+            <ScrollView x:Name="scrollViewArea">
+                
+                
+            </ScrollView>
+            <!--ürün listeleme alanı - end-->
+            
+            
             <!-- bottom navbar - start -->
             <StackLayout Margin=" 0,0,0,5" 
                          Orientation="Horizontal" 

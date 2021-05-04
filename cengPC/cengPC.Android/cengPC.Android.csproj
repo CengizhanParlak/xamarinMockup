@@ -10,6 +10,7 @@
     <RootNamespace>cengPC.Droid</RootNamespace>
     <AssemblyName>cengPC.Android</AssemblyName>
     <Deterministic>True</Deterministic>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -263,10 +264,25 @@
     <AndroidResource Include="Resources\drawable\stokbos.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\kaban.png" />
+    <AndroidResource Include="Resources\drawable\_kaban.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\gomlek.png" />
+    <AndroidResource Include="Resources\drawable\_gomlek.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\_beyaztshirt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\_koyuyesiltshirt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\_mavitshirt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\_turuncutshirt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\_yesiltshirt.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
