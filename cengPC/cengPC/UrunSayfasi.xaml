@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cengPC.UrunSayfasi">
+    <NavigationPage.TitleView>
+        <StackLayout HeightRequest="50" Orientation="Horizontal"  BackgroundColor="white">
+            <ImageButton Source="searchicon" HorizontalOptions="End"
+                     BackgroundColor="white"
+                                VerticalOptions="Center"
+                                Margin="265, 14, 0 ,12" 
+                                CornerRadius="1" 
+                                Padding="0"/>
+            <ImageButton  Source="basket" BackgroundColor="white" HorizontalOptions="End"
+                                 Margin="5,10,10,5"
+                                 Padding="0"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Image x:Name="selectedProduct">
+                
+            </Image>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

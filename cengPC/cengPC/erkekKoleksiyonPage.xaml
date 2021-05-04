@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:cengPC;assembly=cengPC"
-             x:Class="cengPC.erkekKoleksiyonPage"  BackgroundColor="DarkBlue" >
+             x:Class="cengPC.erkekKoleksiyonPage">
     <NavigationPage.TitleView>
         <StackLayout HeightRequest="50" Orientation="Horizontal"  BackgroundColor="white">
             <ImageButton Source="searchicon" HorizontalOptions="End"
@@ -29,7 +29,7 @@
                                  Margin="200,-45,10,5"
                                  Padding="0"/>
             <StackLayout >
-                <Label Text="10 ürün gösteriliyor" HorizontalTextAlignment="Center" FontSize="16" TextColor="Black" BackgroundColor="LightGray"/>
+                <Label x:Name="urunSayisi" Text="10 ürün gösteriliyor" HorizontalTextAlignment="Center" FontSize="16" TextColor="Black" BackgroundColor="LightGray"/>
 
             </StackLayout>
 
@@ -45,7 +45,8 @@
             
             <!-- bottom navbar - start -->
             <StackLayout Margin=" 0,0,0,5" 
-                         Orientation="Horizontal" 
+                         Orientation="Horizontal"
+                         VerticalOptions="End"
                        >
 
                 <StackLayout Orientation="Vertical" Margin="15, 0, 0, 0">

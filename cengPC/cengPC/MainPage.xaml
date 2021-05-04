@@ -17,6 +17,7 @@
 
                 <!-- orta kısım - start-->
                 <xct:TabView
+                    x:Name="tabViewArea"
                     Padding="0,50,0,0"
                     TabStripPlacement="Top"
                     TabStripBackgroundColor="White"
@@ -890,10 +891,11 @@
             <!-- orta kısım - end-->
 
             <!-- bottom navbar - start -->
-            <StackLayout Margin=" 0,610,0,0" 
+            <StackLayout x:Name="bottomNavbar"
+                         Margin=" 0,610,0,0" 
                          HeightRequest="50" 
                          Orientation="Horizontal" 
-                         VerticalOptions="CenterAndExpand">
+                         VerticalOptions="End">
 
                 <StackLayout Orientation="Vertical" Margin="15, 0, 0, 0">
                     <ImageButton Source="homepage.png" BackgroundColor="red"

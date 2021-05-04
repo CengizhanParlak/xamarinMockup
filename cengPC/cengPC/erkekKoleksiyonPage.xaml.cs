@@ -16,7 +16,7 @@ namespace cengPC
         public erkekKoleksiyonPage()
         {
             InitializeComponent();
-            this.Content = this.BuildView();
+            scrollViewArea.Content = this.BuildView();
         }
 
         // asset'te bulunan embedded image'ı alma kodu. Source yazan yer fotoğrafın kaynağını belirtiyor.
@@ -26,7 +26,7 @@ namespace cengPC
             Source = ImageSource.FromResource("cengPC.Resources.assets.beyaztshirt.jpg", typeof(erkekKoleksiyonPage).GetTypeInfo().Assembly)
         };
 
-        private Layout BuildView()
+        private StackLayout BuildView()
         {
             int ImagesInFolder;
             List<String> ImagePaths = new List<String>();
@@ -40,82 +40,70 @@ namespace cengPC
             if (ImagePaths.Count % 2 != 0) {
                 ImagePaths.Add(ImagePaths.ElementAt(0)); //tek sayıda fotoğraf varsa grid'lere fotoğraf eklerken son gridde sorun çıkmasın diye eklendi.
             }
+
             ImagesInFolder = ImagePaths.Count();
-            Grid grid = CreateGrids(ImagesInFolder, ImagePaths);
+            urunSayisi.Text = ImagesInFolder.ToString() + " adet ürün gösteriliyor";
 
+            StackLayout stackLayoutInScrollView= CreateGrids(ImagesInFolder, ImagePaths);
 
-            //buraya filtrele, sırala seçenekleri ve kaç ürün gösterildiği bilgisi eklenecek.
-                StackLayout stackHeaderInv = new StackLayout()
-                {
-                    Padding = new Thickness(0, 10),
-                    HorizontalOptions = LayoutOptions.FillAndExpand,
-                    BackgroundColor = Color.Red,
-                };
-            //filtre - end
-
-
-
-
-            /*ImageButton btnComplete = new ImageButton() { Source = "_beyaztshirt",
-                BackgroundColor = Color.White,
-                BorderColor = Color.White,
-                BorderWidth = 0,
-                HeightRequest = 250,
-                WidthRequest = 250,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
-            };
-            btnComplete.Clicked += ImageClicked;
-
-            //stackHeaderInv.Children.Add(CustomControl);
-
-            StackLayout stackAll = new StackLayout()
-            {
-                Padding = 0,
-                Spacing = 0,
-                Children =
-                { stackHeaderInv, btnComplete }
-            };
-            scrollViewArea.Content = stackAll;*/
-            
-            scrollViewArea.Content = grid;
-            return scrollViewArea;
+            return stackLayoutInScrollView;
         }
 
 
-        public Grid CreateGrids(int imageCount, List<String> ImagePaths){
+        public StackLayout CreateGrids(int imageCount, List<String> ImagePaths){
+            StackLayout sl = new StackLayout();
+            Grid g = new Grid();            //grid oluşturuldu. 2 sütun ve X sayıda satırdan oluşacak.
+            g.ColumnDefinitions.Add(new ColumnDefinition());
+            g.ColumnDefinitions.Add(new ColumnDefinition());
+
             int TotalRow = imageCount / 2; //5 image varsa 5/2 = 2 + 1 = 3'ten 3 tane satır oluştururuz.
             String UrunPath;
-            Grid g = new Grid();
-            g.ColumnDefinitions.Add(new ColumnDefinition());
-            g.ColumnDefinitions.Add(new ColumnDefinition());
-            /*g.RowDefinitions.Add(new RowDefinition()); //önceden satır sayısı belirlemek için bu şekilde yazıyor
-            g.RowDefinitions.Add(new RowDefinition());
-            g.RowDefinitions.Add(new RowDefinition());*/
 
+
+            Frame frameInGrid;
+            StackLayout stackLayoutInFrame;
+            //< Frame >
+            //                < StackLayout >
+            //                    < ImageButton  Source = "{local:ImageResource cengPC.Resources.assets.beyaztshirt.jpg}" Grid.Row = "0" Grid.Column = "0"
+            //                 BackgroundColor = "White" BorderColor = "White" BorderWidth = "0"
+            //                 HeightRequest = "250" HorizontalOptions = "Center" VerticalOptions = "Center" />
+
+            //                        < Label Text = "Açık Kahverengi Standart.." ></ Label >
+
+            //                         < Label Text = "999,95 TL" ></ Label >
+
+            //                      </ StackLayout >
+
+            //                  </ Frame >
             for (int rowIndex = 0; rowIndex < TotalRow; rowIndex++)
             {
-                g.RowDefinitions.Add(new RowDefinition());
+                g.RowDefinitions.Add(new RowDefinition());//yeni satır ekliyoruz
                 for (int columnIndex = 0; columnIndex < 2; columnIndex++)
                 {
+                    frameInGrid = new Frame();
+                    stackLayoutInFrame = new StackLayout();
                     UrunPath = ImagePaths.ElementAt(rowIndex * 2 + columnIndex);
-                    ImageButton UrunButonu = new ImageButton()
+                    
+                    
+                    //Image button yaratıyoruz
+                    Image UrunResmi = new Image()
                     {
                         Source = UrunPath,
                         BackgroundColor = Color.White,
-                        BorderColor = Color.White,
-                        BorderWidth = 0,
-                        HeightRequest = 250,
-                        WidthRequest = 250,
+                        HeightRequest = 300,
+                        WidthRequest = 300,
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center,
                     };
-                    UrunButonu.Clicked += ImageClicked;
-                    g.Children.Add(UrunButonu, columnIndex, rowIndex);
+                    var tapGestureRecognizer = new TapGestureRecognizer();
+                    tapGestureRecognizer.NumberOfTapsRequired = 1;
+                    UrunResmi.GestureRecognizers.Add(tapGestureRecognizer);
+
                     Label UrunLabeli = new Label {
                         Text = UrunPath.Substring(1),
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center,
+
                     };
                     Label UrunFiyati = new Label
                     {
@@ -123,16 +111,23 @@ namespace cengPC
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center,
                     };
-                    g.Children.Add(UrunLabeli, columnIndex, rowIndex);
-                    g.Children.Add(UrunFiyati, columnIndex, rowIndex);
+
+                    stackLayoutInFrame.Children.Add(UrunResmi);
+                    stackLayoutInFrame.Children.Add(UrunLabeli);
+                    stackLayoutInFrame.Children.Add(UrunFiyati);
+                    frameInGrid.Content = stackLayoutInFrame;
+                    g.Children.Add(frameInGrid, columnIndex, rowIndex);
                 }
             }
-            return g;
+            sl.Children.Add(g);
+            return sl;
         }
 
-        private void ImageClicked(object sender, EventArgs e)
+        public void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
-            Console.WriteLine("yeni sezon->erkek->fotoğraf tıklandı");
+            var imageSender = (Image)sender;
+            Navigation.PushAsync(new UrunSayfasi(imageSender));
+            
         }
     }
 
