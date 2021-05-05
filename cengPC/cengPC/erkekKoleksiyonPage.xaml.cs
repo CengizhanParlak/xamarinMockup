@@ -16,24 +16,37 @@ namespace cengPC
         
         public static List<string> ImagePaths = new List<string>();
         public static List<ImageSource> imgSourcesAsSource = new List<ImageSource>();
+        public static bool isInitialized = false;
+        public static StackLayout sl = new StackLayout();
 
         public erkekKoleksiyonPage()
         {
             InitializeComponent();
-            scrollViewArea.Content = this.BuildView();
+            if (!isInitialized)
+            {
+                scrollViewArea.Content = this.BuildView();
+            }
+            else
+            {
+                scrollViewArea.Content = sl;
+            }
         }
 
 
         private StackLayout BuildView()
         {
             int ImagesInFolder;
-            ImagePaths.Add("_beyaztshirt");
-            ImagePaths.Add("_gomlek");
-            ImagePaths.Add("_kaban");
-            ImagePaths.Add("_koyuyesiltshirt");
-            ImagePaths.Add("_mavitshirt");
-            ImagePaths.Add("_turuncutshirt");
-            ImagePaths.Add("_yesiltshirt");
+            if (!isInitialized) {
+                ImagePaths.Add("_beyaztshirt");
+                ImagePaths.Add("_gomlek");
+                ImagePaths.Add("_kaban");
+                ImagePaths.Add("_koyuyesiltshirt");
+                ImagePaths.Add("_mavitshirt");
+                ImagePaths.Add("_turuncutshirt");
+                ImagePaths.Add("_yesiltshirt");
+                ImagePaths.Add("_grimelanjtshirt");
+                isInitialized = true;
+            }
             if (ImagePaths.Count % 2 != 0) {
                 ImagePaths.Add(ImagePaths.ElementAt(0)); //tek sayıda fotoğraf varsa grid'lere fotoğraf eklerken son gridde sorun çıkmasın diye eklendi.
             }
@@ -48,7 +61,7 @@ namespace cengPC
 
 
         public StackLayout CreateGrids(int imageCount, List<string> ImagePaths){
-            StackLayout sl = new StackLayout();
+            //önceden stacklayout'u burada oluşturuyordum.
             Grid g = new Grid();            //grid oluşturuldu. 2 sütun ve X sayıda satırdan oluşacak.
             g.ColumnDefinitions.Add(new ColumnDefinition());
             g.ColumnDefinitions.Add(new ColumnDefinition());
@@ -108,10 +121,10 @@ namespace cengPC
         }
 
 
-        private async void UrunButton_Clicked(object sender, EventArgs e)
+        async void UrunButton_Clicked(object sender, EventArgs e)
         {
-            ImageButton imgButton = sender as ImageButton;
-            int productID = imgSourcesAsSource.IndexOf(imgButton.Source);
+            ImageButton imgBtn = sender as ImageButton;
+            int productID = imgSourcesAsSource.IndexOf(imgBtn.Source);
             await Navigation.PushAsync(new UrunSayfasi(productID));
         }
 

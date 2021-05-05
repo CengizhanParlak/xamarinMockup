@@ -69,15 +69,16 @@ namespace cengPC
 
             Grid gridSepet = new Grid();
             gridSepet.ColumnDefinitions.Add(new ColumnDefinition());
-            Frame frameInGrid = new Frame
-            {
-                Margin = new Thickness(10),
-                BorderColor = Color.White,
-                VerticalOptions = LayoutOptions.Start,
-            };
+            
 
             for (int i = 0; i < sepettekiUrunSayisi; i++)
             {
+                Frame frameInGrid = new Frame
+                {
+                    Margin = new Thickness(10),
+                    BorderColor = Color.White,
+                    VerticalOptions = LayoutOptions.Start,
+                };
                 gridSepet.RowDefinitions.Add(new RowDefinition());
                 whichRow = i;
 
@@ -339,9 +340,15 @@ namespace cengPC
             fiyatSLChild4.Children.Add(dorduncuSatir2);
             //kdv dahil toplam - end
 
+            Frame frameInGrid2 = new Frame
+            {
+                Margin = new Thickness(10),
+                BorderColor = Color.White,
+                VerticalOptions = LayoutOptions.Start,
+            };
             fiyatSLTop.Children.Add(fiyatSLChild4);
-            frameInGrid.Content = fiyatSLTop;
-            gridSepet.Children.Add(frameInGrid, 0, whichRow + 1);//gride ekledik
+            frameInGrid2.Content = fiyatSLTop;
+            gridSepet.Children.Add(frameInGrid2, 0, whichRow + 1);//gride ekledik
 
             StackLayout indirimKuponuSL= new StackLayout();
             gridSepet.RowDefinitions.Add(new RowDefinition());
@@ -355,9 +362,17 @@ namespace cengPC
                 FontSize = 18,
                 TextColor = Color.FromHex("#b70333"),
             };
+
+
+            Frame frameInGrid3 = new Frame
+            {
+                Margin = new Thickness(10),
+                BorderColor = Color.White,
+                VerticalOptions = LayoutOptions.Start,
+            };
             indirimKuponuSL.Children.Add(indirimKuponuBtn);
-            frameInGrid.Content = indirimKuponuSL;
-            gridSepet.Children.Add(frameInGrid, 0, whichRow + 2);
+            frameInGrid3.Content = indirimKuponuSL;
+            gridSepet.Children.Add(frameInGrid3, 0, whichRow + 2);
 
             Button alisverisiTamamla = new Button {
                 Text = "ALIŞVERİŞİ TAMAMLA",
