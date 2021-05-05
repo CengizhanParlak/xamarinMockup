@@ -9,14 +9,13 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
 
-                    <StackLayout x:Name="urunlerLayout" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="White" Margin="10,0,10,0">
-                                 <Label Text="Sepetinizde Ürün &#10;    Bulunamadı" TextColor="Brown"
-                                        FontSize="20" FontAttributes="Bold"></Label>
-                                <BoxView BackgroundColor="Gray" HeightRequest="1" />
-                                        <StackLayout>
-                                            <Button Text="KOLEKSİYON" CornerRadius="40" HeightRequest="40" Clicked="Button_Clicked"></Button>
-                                        </StackLayout>
-                    </StackLayout>
+
+        <ScrollView x:Name="SVinBasket" Orientation="Vertical">
+            <StackLayout x:Name="urunlerLayout" HorizontalOptions="Center" VerticalOptions="Center">
+
+            </StackLayout>
+        </ScrollView>
+        
 
     </ContentPage.Content>
 </ContentPage>

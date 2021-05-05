@@ -13,23 +13,18 @@ namespace cengPC
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class erkekKoleksiyonPage : ContentPage
     {
+        List<String> ImagePaths = new List<String>();
+
         public erkekKoleksiyonPage()
         {
             InitializeComponent();
             scrollViewArea.Content = this.BuildView();
         }
 
-        // asset'te bulunan embedded image'ı alma kodu. Source yazan yer fotoğrafın kaynağını belirtiyor.
-        // işlem sonunda embeddedImage = source'dan gelen fotoğraf
-        Image embeddedImage = new Image
-        {
-            Source = ImageSource.FromResource("cengPC.Resources.assets.beyaztshirt.jpg", typeof(erkekKoleksiyonPage).GetTypeInfo().Assembly)
-        };
 
         private StackLayout BuildView()
         {
             int ImagesInFolder;
-            List<String> ImagePaths = new List<String>();
             ImagePaths.Add("_beyaztshirt");
             ImagePaths.Add("_gomlek");
             ImagePaths.Add("_kaban");
@@ -62,19 +57,7 @@ namespace cengPC
 
             Frame frameInGrid;
             StackLayout stackLayoutInFrame;
-            //< Frame >
-            //                < StackLayout >
-            //                    < ImageButton  Source = "{local:ImageResource cengPC.Resources.assets.beyaztshirt.jpg}" Grid.Row = "0" Grid.Column = "0"
-            //                 BackgroundColor = "White" BorderColor = "White" BorderWidth = "0"
-            //                 HeightRequest = "250" HorizontalOptions = "Center" VerticalOptions = "Center" />
 
-            //                        < Label Text = "Açık Kahverengi Standart.." ></ Label >
-
-            //                         < Label Text = "999,95 TL" ></ Label >
-
-            //                      </ StackLayout >
-
-            //                  </ Frame >
             for (int rowIndex = 0; rowIndex < TotalRow; rowIndex++)
             {
                 g.RowDefinitions.Add(new RowDefinition());//yeni satır ekliyoruz
@@ -86,7 +69,7 @@ namespace cengPC
 
 
                     //Image button yaratıyoruz
-                    ImageButton UrunButton = new ImageButton()
+                    myImageButton UrunButton = new myImageButton() //ImageButton'a çevirince her şey düzgün çalışıyor
                     {
                         Source = UrunPath,
                         BackgroundColor = Color.Transparent,
@@ -95,7 +78,6 @@ namespace cengPC
                         Aspect = Aspect.AspectFill,
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center,
-                        
                     };
 
                     UrunButton.Clicked += UrunButton_Clicked;
@@ -112,7 +94,7 @@ namespace cengPC
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center,
                     };
-
+                    Console.WriteLine("aga source u şu:" + UrunButton.Source);
                     stackLayoutInFrame.Children.Add(UrunButton);
                     stackLayoutInFrame.Children.Add(UrunLabeli);
                     stackLayoutInFrame.Children.Add(UrunFiyati);
@@ -125,15 +107,28 @@ namespace cengPC
         }
 
 
-        private void UrunButton_Clicked(object sender, EventArgs e)
+        private async void UrunButton_Clicked(object sender, EventArgs e)
         {
-            ImageButton imgButton = (ImageButton)sender;
-            Navigation.PushAsync(new UrunSayfasi(imgButton));
+            myImageButton imgButton = sender as myImageButton;
+            await Navigation.PushAsync(new UrunSayfasi(imgButton.Source));
         }
+
+
+
     }
 
-
+    internal class myImageButton : ImageButton
+    {
+        public new string Source { get; set; }
+        public new Color BackgroundColor { get; set; }
+        public new int HeightRequest { get; set; }
+        public new Thickness Margin { get; set; }
+        public new Aspect Aspect { get; set; }
+        public new LayoutOptions HorizontalOptions { get; set; }
+        public LayoutOptions VerticalOptions { get; set; }
+    }
     
+
 
     [ContentProperty(nameof(Source))]
     public class ImageResourceExtension : IMarkupExtension

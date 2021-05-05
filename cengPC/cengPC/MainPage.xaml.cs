@@ -14,16 +14,18 @@ namespace cengPC
     public partial class MainPage : ContentPage
     {
         public static bool girildiMi;
+        public static List<string> imagePaths = new List<string>();
         
         public MainPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = this;
+
             var metrics = DeviceDisplay.MainDisplayInfo;
             double densityOfScreen = metrics.Density;
             double widthOfScreen = metrics.Width/densityOfScreen;
             double heightOfScreen = metrics.Height/densityOfScreen;
-            double ContentArea = heightOfScreen - 50;
+            double ContentArea = heightOfScreen - 55;//doğru alıyoruz ama xaml'da bunu kullanmayı bulamadım. binding falan denedim ama ı ıh
             InitializeComponent();
         }
         async void SearchBtnClicked(object sender, EventArgs e)
@@ -34,7 +36,7 @@ namespace cengPC
 
         async void BasketBtnClicked (object sender, EventArgs e)//private void ti. 21.39da async'e değiştirdim
         {
-            await Navigation.PushAsync(new basketPage());
+            await Navigation.PushAsync(new basketPage(imagePaths));
         }
 
         private void HesabimBtnClicked(object sender, EventArgs e)

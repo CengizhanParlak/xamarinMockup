@@ -16,59 +16,49 @@ namespace cengPC
     {
         public ArrayList urunlerDizisi = new ArrayList();
 
-        public basketPage()
+        public basketPage(List<String> dosyaKonumlari)
         {                
             InitializeComponent();
-
-            #region
-            /* 
-             string[] straImageLocations = System.IO.Directory.GetFiles("DirectoryLocation", "*.png", SearchOption.TopDirectoryOnly);
-            Image[] Deck = new Image[straImageLocations.Length];
-            for (int i = 0; i < straImageLocations.Length; i++)
+            
+            if (dosyaKonumlari.Count > 0)
             {
-                Deck[i] = Image.FromFile(straImageLocations[i]);
-            }
-            urunlerDizisi.Add("");
-            if (urunlerDizisi.Count != 0)
-            {
-                String fotografIsmi = "";
+                FileImageSource objFileImageSource = dosyaKonumlari.ElementAt(0);
+                Console.WriteLine("___________-elementat0: " + dosyaKonumlari.ElementAt(0));
+                Console.WriteLine("___________objFileImageSource: " + objFileImageSource);
+                //strFileName.Substring(6);
 
-                for (int i = 1; i < 6; i++)
+                Image newImage = new Image();
+                try
                 {
-                    Image urunResmi = new Image();
-                    Label urunIsmi = new Label();
-                    fotografIsmi = "foto" + i;
-                    urunResmi.Source = fotografIsmi;
-                    urunResmi.Margin = new Thickness(10, 10, 10, 10);
-                    urunIsmi.Text = "urun " + i;
-                    urunIsmi.Margin = new Thickness(10, 10, 10, 10);
-                    urunlerLayout.Children.Add(urunResmi);
-                    urunlerLayout.Children.Add(urunIsmi);
+                    newImage.Source = objFileImageSource;
                 }
+                catch (Exception e) {
+                    Console.WriteLine("errroroororororo");
+                }
+                urunlerLayout.Children.Add(newImage);
             }
-            else
-            {
-                InitializeComponent();
-            }*/
-            #endregion //ys
+            
+            if (dosyaKonumlari.Count < 1) {
+                Label emptyLabel = new Label { 
+                    Text = "Sepetinizde Ürün Bulunamadı",
+                    TextColor = Color.Brown,
+                    FontSize = 20,
+                    FontAttributes = FontAttributes.Bold,
+                };
+                BoxView boxView = new BoxView { 
+                    BackgroundColor = Color.Gray,
+                    HeightRequest = 1,
+                };
+                StackLayout SLinEmptyBasket = new StackLayout {
+                    VerticalOptions = LayoutOptions.CenterAndExpand,
+                    HorizontalOptions = LayoutOptions.CenterAndExpand,
+                    BackgroundColor = Color.White,
+                    Margin = new Thickness(10, 0, 10, 0),
+                    Children = { emptyLabel, boxView }
+                };
+                SVinBasket.Content = SLinEmptyBasket;
+            }
         }
 
-        async void Button_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new erkekKoleksiyonPage());
-        }
-
-
-
-
-        /*   public void LoadDynamicFields()
-                  {
-
-                  int count = 2;
-                      for(int i = 0; i < count; i++)
-                      {
-
-                      }
-                  }*/
     }
 }

@@ -3,23 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="cengPC.UrunSayfasi">
     <NavigationPage.TitleView>
-        <StackLayout HeightRequest="50" Orientation="Horizontal"  BackgroundColor="white">
-            <ImageButton Source="searchicon" HorizontalOptions="End"
-                     BackgroundColor="white"
+        <!-- topbar - start -->
+        <StackLayout  HeightRequest="50" Orientation="Horizontal" VerticalOptions="Center" BackgroundColor="white">
+
+            <Label Text="Bilmem ne gömlek falan" BackgroundColor="white"
+                                HorizontalOptions="End" 
                                 VerticalOptions="Center"
-                                Margin="265, 14, 0 ,12" 
-                                CornerRadius="1" 
-                                Padding="0"/>
-            <ImageButton  Source="basket" BackgroundColor="white" HorizontalOptions="End"
-                                 Margin="5,10,10,5"
-                                 Padding="0"/>
+                                Margin="60, 15, 0 ,13"  />
+
+            <ImageButton  Source="basket" BackgroundColor="white"
+                                 HorizontalOptions="Start" 
+                                 VerticalOptions="Start"
+                                 Margin="0,10,10,5"
+                                 Padding="0" Clicked="SepetClicked"/>
+
         </StackLayout>
+        <!-- topbar - end -->
     </NavigationPage.TitleView>
     
     <ContentPage.Content>
         <AbsoluteLayout BackgroundColor="White">
+            
+            
+            
+            
+            
             <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never" >
-                <StackLayout x:Name="SLinContent">
+                <StackLayout x:Name="SLinContent"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
 
                 </StackLayout>
             </ScrollView>
@@ -44,6 +56,7 @@
                             FontAttributes="Bold"
                             TextColor="White"
                             BackgroundColor="DarkRed"
+                            Clicked="SepeteEkle_Clicked"
                             />
                 
             </StackLayout>
