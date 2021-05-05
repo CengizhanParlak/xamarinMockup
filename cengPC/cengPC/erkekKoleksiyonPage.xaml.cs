@@ -112,7 +112,7 @@ namespace cengPC
         {
             ImageButton imgButton = sender as ImageButton;
             int productID = imgSourcesAsSource.IndexOf(imgButton.Source);
-            await Navigation.PushAsync(new UrunSayfasi(imgButton, productID));
+            await Navigation.PushAsync(new UrunSayfasi(productID));
         }
 
 

@@ -15,11 +15,10 @@ namespace cengPC
         public static List<int> siralar = new List<int>();
         public static int holder;
 
-        public UrunSayfasi(ImageButton source, int index)
+        public UrunSayfasi(int index)
         {
-            ImageButton imageToShow = source;
             InitializeComponent();
-            SLinContent.Children.Add(imageToShow);
+            showingImage.Source = 
             holder = index;
         }
 

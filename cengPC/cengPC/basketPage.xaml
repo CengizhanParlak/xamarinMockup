@@ -11,9 +11,10 @@
     <ContentPage.Content>
 
 
-        <StackLayout>
+        <StackLayout x:Name="MainStackLayout">
             <ScrollView x:Name="SVinBasket" Orientation="Vertical">
-                <StackLayout x:Name="urunlerLayout" 
+               
+                <!--<StackLayout x:Name="urunlerLayout" //slinsv
                              Orientation="Vertical"
                              Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="3">
                     <Label x:Name="urunSayisiBasket" 
@@ -32,10 +33,10 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         
-                        <Frame Margin="10" Grid.Row="0"
+                        <Frame Margin="10" Grid.Row="0" //frameingrid
                                BorderColor="White">
-                            <StackLayout>
-                                <StackLayout Orientation="Horizontal">
+                            <StackLayout> //sltop
+                                <StackLayout Orientation="Horizontal">//sltop2
                                     <ImageButton  Source="_kaban" 
                                               BackgroundColor="White" 
                                               BorderColor="LightGray" 
@@ -43,9 +44,9 @@
                                               HeightRequest="230" 
                                               HorizontalOptions="Start" 
                                               VerticalOptions="Start"/>
-                                    <StackLayout Orientation="Vertical" Margin="5,0,0,0">
-                                        <StackLayout Orientation="Horizontal"
-                                                 WidthRequest="200">
+                                    <StackLayout Orientation="Vertical" Margin="5,0,0,0">//sltop3
+                                        <StackLayout Orientation="Horizontal" 
+                                                 WidthRequest="200">            //sltop4
                                             <Label Text="79,95 TL"
                                                FontSize="20"
                                                TextColor="#b70333"
@@ -58,7 +59,7 @@
                                                      Clicked="askIfSure">
                                             </ImageButton>
                                         </StackLayout>
-                                        <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Vertical"> //sltop5
                                             <Label Text="149,95 TL"
                                            TextColor="Gray"
                                                HorizontalOptions="Fill"
@@ -87,7 +88,7 @@
                                                FontSize="16"
                                                TextColor="Black"></Label>
                                         </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Horizontal"> //sltop6
                                             <ImageButton Source="remove"
                                                      BackgroundColor="Transparent"
                                                      Margin="0, 10,0,0"
@@ -107,7 +108,7 @@
                                         </StackLayout>
                                     </StackLayout>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal">//sltop7
                                     <ImageButton Source="giftBox"
                                              BackgroundColor="Transparent"
                                              WidthRequest="25"
@@ -132,27 +133,13 @@
                                        FontAttributes="Bold"
                                        FontSize="18"></Label>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="KDV Dahil Toplam"
-                                           FontSize="16" TextColor="Black"></Label>
-                                    <Label Text="219,95 TL"
-                                           FontSize="16" 
-                                           TextColor="Black"
-                                           HorizontalOptions="EndAndExpand"></Label>
+                                    
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="Ürün İndirim Toplamı"
-                                           FontSize="16" TextColor="Black"></Label>
-                                    <Label Text="219,95 TL"
-                                           FontSize="16" 
-                                           TextColor="#b70333"
-                                           HorizontalOptions="EndAndExpand"></Label>
+                                  
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="Kampanya İndirimi"
-                                           FontSize="16" TextColor="Black"></Label>
-                                    <Label Text="219,95 TL" 
-                                           FontSize="16" 
-                                           TextColor="#b70333" HorizontalOptions="EndAndExpand"></Label>
+                                   
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="Ödenecek Tutar"
@@ -183,17 +170,17 @@
                             </StackLayout>
                         </Frame>
                     </Grid>
-                </StackLayout>
+                </StackLayout>-->
             </ScrollView>
             
-            <!--alışverişi tamamla button-->
+            <!--alışverişi tamamla button--><!--
             <Button Text="ALIŞVERİŞİ TAMAMLA"
                     FontSize="Large"
                     FontAttributes="Bold"
                     BackgroundColor="#b70333"
                     TextColor="White"
                     ></Button>
-            <!--alışverişi tamamla button-->
+            --><!--alışverişi tamamla button-->
         </StackLayout>
         
 

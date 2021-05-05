@@ -32,6 +32,12 @@
                 <StackLayout x:Name="SLinContent"
                              VerticalOptions="Center"
                              HorizontalOptions="Center">
+                    <Image x:Name="showingImage"
+                           VerticalOptions="Start"
+                           HorizontalOptions="Center"
+                           WidthRequest="250">
+                        
+                    </Image>
 
                 </StackLayout>
             </ScrollView>
@@ -55,7 +61,7 @@
                             FontSize="20"
                             FontAttributes="Bold"
                             TextColor="White"
-                            BackgroundColor="DarkRed"
+                            BackgroundColor="#b70333"
                             Clicked="SepeteEkle_Clicked"
                             />
                 
