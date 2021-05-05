@@ -15,7 +15,7 @@
             <ScrollView x:Name="SVinBasket" Orientation="Vertical">
                 <StackLayout x:Name="urunlerLayout" 
                              Orientation="Vertical"
-                             Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2">
+                             Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="3">
                     <Label x:Name="urunSayisiBasket" 
                            Text="Ürün (1)"
                            FontSize="16"
@@ -31,7 +31,9 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Frame Margin="10">
+                        
+                        <Frame Margin="10" Grid.Row="0"
+                               BorderColor="White">
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <ImageButton  Source="_kaban" 
@@ -46,7 +48,7 @@
                                                  WidthRequest="200">
                                             <Label Text="79,95 TL"
                                                FontSize="20"
-                                               TextColor="MediumVioletRed"
+                                               TextColor="#b70333"
                                                FontAttributes="Bold">
                                             </Label>
                                             <ImageButton Source="close"
@@ -73,9 +75,9 @@
                                                 WidthRequest="140"
                                                 HeightRequest="40"
                                                 Margin="0,10,0,0"
-                                                BorderColor="MediumVioletRed"
+                                                BorderColor="#b70333"
                                                 BorderWidth="3"
-                                                TextColor="MediumVioletRed"
+                                                TextColor="#b70333"
                                                 Text="Kargo Bedava"
                                                 FontSize="16"
                                                 CornerRadius="50"
@@ -117,48 +119,81 @@
                                            VerticalOptions="End"></Label>
                                 </StackLayout>
                             </StackLayout>
-                            
-
                         </Frame>
+                        
+                        
                         <Frame Grid.Row="1"
                                Margin="10"
-                               VerticalOptions="Start">
+                               VerticalOptions="Start"
+                               BorderColor="WhiteSmoke">
                             <StackLayout Orientation="Vertical">
-                                <Label Text="Sipariş Özeti"></Label>
+                                <Label Text="Sipariş Özeti"
+                                       TextColor="#b70333"
+                                       FontAttributes="Bold"
+                                       FontSize="18"></Label>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="Sipariş Özeti"></Label>
-                                    <Label Text="Sipariş Özeti"></Label>
+                                    <Label Text="KDV Dahil Toplam"
+                                           FontSize="16" TextColor="Black"></Label>
+                                    <Label Text="219,95 TL"
+                                           FontSize="16" 
+                                           TextColor="Black"
+                                           HorizontalOptions="EndAndExpand"></Label>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="Sipariş Özeti"></Label>
-                                    <Label Text="Sipariş Özeti"></Label>
+                                    <Label Text="Ürün İndirim Toplamı"
+                                           FontSize="16" TextColor="Black"></Label>
+                                    <Label Text="219,95 TL"
+                                           FontSize="16" 
+                                           TextColor="#b70333"
+                                           HorizontalOptions="EndAndExpand"></Label>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="Sipariş Özeti"></Label>
-                                    <Label Text="Sipariş Özeti"></Label>
+                                    <Label Text="Kampanya İndirimi"
+                                           FontSize="16" TextColor="Black"></Label>
+                                    <Label Text="219,95 TL" 
+                                           FontSize="16" 
+                                           TextColor="#b70333" HorizontalOptions="EndAndExpand"></Label>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="Sipariş Özeti"></Label>
-                                    <Label Text="Sipariş Özeti"></Label>
-                                </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Sipariş Özeti"></Label>
-                                    <Label Text="Sipariş Özeti"></Label>
+                                    <Label Text="Ödenecek Tutar"
+                                           FontSize="16" TextColor="Black"
+                                           FontAttributes="Bold"></Label>
+                                    <Label Text="219,95 TL" 
+                                           FontSize="16" 
+                                           TextColor="Black"
+                                           FontAttributes="Bold" HorizontalOptions="EndAndExpand"></Label>
                                 </StackLayout>
                             </StackLayout>
                         </Frame>
-                        <Frame Grid.Row="2">
+                        
+                        
+                        <Frame Grid.Row="2"
+                               Margin="10"
+                               BorderColor="WhiteSmoke"
+                               VerticalOptions="Start">
                             <StackLayout>
-                                <ImageButton  Source="_gomlek"
-                             BackgroundColor="White" BorderColor="White" BorderWidth="0" 
-                             HeightRequest="250" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                <Label Text="Açık Kahverengi Standart.." ></Label>
-                                <Label Text="999,95 TL"></Label>
+                                <Button Text="İndirim Kodum Var"
+                                        BackgroundColor="Transparent"
+                                        HorizontalOptions="StartAndExpand"
+                                        Padding="-200,0,0,0"
+                                        WidthRequest="350"
+                                        FontSize="18"
+                                        TextColor="#b70333">
+                                </Button>
                             </StackLayout>
                         </Frame>
                     </Grid>
                 </StackLayout>
             </ScrollView>
+            
+            <!--alışverişi tamamla button-->
+            <Button Text="ALIŞVERİŞİ TAMAMLA"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    BackgroundColor="#b70333"
+                    TextColor="White"
+                    ></Button>
+            <!--alışverişi tamamla button-->
         </StackLayout>
         
 
