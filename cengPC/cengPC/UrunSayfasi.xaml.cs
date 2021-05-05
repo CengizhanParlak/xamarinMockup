@@ -11,25 +11,26 @@ namespace cengPC
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UrunSayfasi : ContentPage
     {
-        static Datas bilgiler = new Datas();
-        List<String> imagePathsHere = MainPage.imagePaths;
-        
 
-        public UrunSayfasi(ImageSource source)
+        public static List<int> siralar = new List<int>();
+        public static int holder;
+
+        public UrunSayfasi(ImageButton source, int index)
         {
-            //gelen bilgiler burada lokal olarak tanımlanacak. sepete ekle tuşuna basıldığında
+            ImageButton imageToShow = source;
             InitializeComponent();
-            bilgiler.setSource(source);
+            SLinContent.Children.Add(imageToShow);
+            holder = index;
         }
 
         private void SepeteEkle_Clicked(object sender, EventArgs e)
         {
-            imagePathsHere.Add(bilgiler.getSource().ToString());
+            siralar.Add(holder);
         }
 
         private void SepetClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new basketPage(imagePathsHere));
+            Navigation.PushAsync(new basketPage());
         }
 
     }

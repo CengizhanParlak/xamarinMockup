@@ -14,31 +14,25 @@ namespace cengPC
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class basketPage : ContentPage
     {
-        public ArrayList urunlerDizisi = new ArrayList();
-
-        public basketPage(List<String> dosyaKonumlari)
+        public basketPage()
         {                
             InitializeComponent();
-            
-            if (dosyaKonumlari.Count > 0)
-            {
-                FileImageSource objFileImageSource = dosyaKonumlari.ElementAt(0);
-                Console.WriteLine("___________-elementat0: " + dosyaKonumlari.ElementAt(0));
-                Console.WriteLine("___________objFileImageSource: " + objFileImageSource);
-                //strFileName.Substring(6);
+            List<string> urunKonumlari = new List<string>();
 
-                Image newImage = new Image();
-                try
+            if (UrunSayfasi.siralar.Count > 0)
+            {
+                for (int i = 0; i < UrunSayfasi.siralar.Count; i++)
                 {
-                    newImage.Source = objFileImageSource;
-                }
-                catch (Exception e) {
-                    Console.WriteLine("errroroororororo");
-                }
+                    urunKonumlari.Add(erkekKoleksiyonPage.ImagePaths.ElementAt(UrunSayfasi.siralar.ElementAt(i)));
+                    Image newImage = new Image {
+                        Source = urunKonumlari.ElementAt(i),
+                    };
                 urunlerLayout.Children.Add(newImage);
+                }
+                
             }
             
-            if (dosyaKonumlari.Count < 1) {
+            else {
                 Label emptyLabel = new Label { 
                     Text = "Sepetinizde Ürün Bulunamadı",
                     TextColor = Color.Brown,

@@ -36,7 +36,7 @@ namespace cengPC
 
         async void BasketBtnClicked (object sender, EventArgs e)//private void ti. 21.39da async'e değiştirdim
         {
-            await Navigation.PushAsync(new basketPage(imagePaths));
+            await Navigation.PushAsync(new basketPage());
         }
 
         private void HesabimBtnClicked(object sender, EventArgs e)

@@ -13,7 +13,9 @@ namespace cengPC
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class erkekKoleksiyonPage : ContentPage
     {
-        List<String> ImagePaths = new List<String>();
+        
+        public static List<string> ImagePaths = new List<string>();
+        public static List<ImageSource> imgSourcesAsSource = new List<ImageSource>();
 
         public erkekKoleksiyonPage()
         {
@@ -45,14 +47,14 @@ namespace cengPC
         }
 
 
-        public StackLayout CreateGrids(int imageCount, List<String> ImagePaths){
+        public StackLayout CreateGrids(int imageCount, List<string> ImagePaths){
             StackLayout sl = new StackLayout();
             Grid g = new Grid();            //grid oluşturuldu. 2 sütun ve X sayıda satırdan oluşacak.
             g.ColumnDefinitions.Add(new ColumnDefinition());
             g.ColumnDefinitions.Add(new ColumnDefinition());
 
             int TotalRow = imageCount / 2; //5 image varsa 5/2 = 2 + 1 = 3'ten 3 tane satır oluştururuz.
-            String UrunPath;
+            string UrunPath;
 
 
             Frame frameInGrid;
@@ -69,7 +71,7 @@ namespace cengPC
 
 
                     //Image button yaratıyoruz
-                    myImageButton UrunButton = new myImageButton() //ImageButton'a çevirince her şey düzgün çalışıyor
+                    ImageButton UrunButton = new ImageButton() //ImageButton'a çevirince her şey düzgün çalışıyor
                     {
                         Source = UrunPath,
                         BackgroundColor = Color.Transparent,
@@ -79,8 +81,8 @@ namespace cengPC
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center,
                     };
-
                     UrunButton.Clicked += UrunButton_Clicked;
+                    imgSourcesAsSource.Add(UrunButton.Source);
 
                     Label UrunLabeli = new Label {
                         Text = UrunPath.Substring(1),
@@ -94,7 +96,6 @@ namespace cengPC
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center,
                     };
-                    Console.WriteLine("aga source u şu:" + UrunButton.Source);
                     stackLayoutInFrame.Children.Add(UrunButton);
                     stackLayoutInFrame.Children.Add(UrunLabeli);
                     stackLayoutInFrame.Children.Add(UrunFiyati);
@@ -109,26 +110,14 @@ namespace cengPC
 
         private async void UrunButton_Clicked(object sender, EventArgs e)
         {
-            myImageButton imgButton = sender as myImageButton;
-            await Navigation.PushAsync(new UrunSayfasi(imgButton.Source));
+            ImageButton imgButton = sender as ImageButton;
+            int productID = imgSourcesAsSource.IndexOf(imgButton.Source);
+            await Navigation.PushAsync(new UrunSayfasi(imgButton, productID));
         }
 
 
 
     }
-
-    internal class myImageButton : ImageButton
-    {
-        public new string Source { get; set; }
-        public new Color BackgroundColor { get; set; }
-        public new int HeightRequest { get; set; }
-        public new Thickness Margin { get; set; }
-        public new Aspect Aspect { get; set; }
-        public new LayoutOptions HorizontalOptions { get; set; }
-        public LayoutOptions VerticalOptions { get; set; }
-    }
-    
-
 
     [ContentProperty(nameof(Source))]
     public class ImageResourceExtension : IMarkupExtension
